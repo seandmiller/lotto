@@ -32,8 +32,8 @@ def name():
    if the_house.get()!="" and gambler.get()!="":
 
 
-   	   house.config(text=the_house.get(),fg='red')
-   	   gamblr.config(text=gambler.get(),fg='blue')
+   	   house.config(text=f"The House: {the_house.get()}",fg='red')
+   	   gamblr.config(text=f"Gambler: {gambler.get()}",fg='blue')
    	   house.grid(row=12,column=1)
    	   gamblr.grid(row=12,column=3)
 
