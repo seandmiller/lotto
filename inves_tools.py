@@ -1,6 +1,6 @@
 class tools:
 	def __init__(self,whole,time=0,percentage=0,addition=0):
-		self.whole=whole
+		self.whole=float(whole)
 		self.percentage=percentage
 		self.time=time
 		self.addition=addition
