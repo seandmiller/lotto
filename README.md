@@ -11,4 +11,8 @@
 >Version 0.08 
 ## Updated background image and name button
 >Version 0.09 
-## adding touch ups  
+## adding touch ups 
+>Version 0.1
+## 90% complete adding some more sound 
+>Modules Necessary to run this program --Version 0.1
+## tkinter, random -> randrange, PIL -> ImageTk,Image, tkinter.font as font, pygame 

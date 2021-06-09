@@ -20,6 +20,7 @@ background_sound=pygame.mixer
 background_sound.init()
 background_sound.music.load('music/aot_y.wav')
 
+
 window.title('The Lotto')
 b_img=Image.open('images/matrix.jpg')
 b_img=b_img.resize((2000,2000), Image.ANTIALIAS)
@@ -48,6 +49,7 @@ img=Image.open('images/casino_gif.gif')
 final_img=ImageTk.PhotoImage(img)
 
 def name():
+   pygame.mixer.Channel(2).play(pygame.mixer.Sound('music/name.wav'))
    global hous_name
    hous_name=the_house.get()
    global gamblr_name 
@@ -90,7 +92,7 @@ def background_gif(count):
 	b_count+=1
 	if b_count==b_frame:
 		b_count=0
-	window.after(125,lambda: background_gif(b_count))
+	window.after(100,lambda: background_gif(b_count))
 background_gif(b_count)		
 
 
@@ -117,6 +119,8 @@ global house_dlr
 house_dlr=1000
 
 def lever(g, h):
+	pygame.mixer.Channel(1).play(pygame.mixer.Sound('music/spin.wav'))
+	
 	global count
 	count=0
 	global end_frame
