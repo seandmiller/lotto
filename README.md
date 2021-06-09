@@ -8,3 +8,5 @@
 ## Updating FrontEnd  
 >Version 0.06 
 ## FrontEnd and BackEnd nearly complete adding sound and more animations if possible
+>Version 0.08 
+## Updated background image and name button 

@@ -14,9 +14,11 @@ color2='black'
 
 
 window =Tk()
-pygame.mixer.init()
-background_sound=pygame.mixer.music
-background_sound.load('music/aot_y.wav')
+#window.configure(bg='black')
+
+background_sound=pygame.mixer
+background_sound.init()
+background_sound.music.load('music/aot_y.wav')
 
 window.title('The Lotto')
 b_img=Image.open('images/matrix.jpg')
@@ -41,6 +43,7 @@ house_lbl.grid(row=0,column=0,columnspan=2)
 gamblr_lbl.grid(row=0,column=3,columnspan=2)
 
 img=Image.open('images/casino_gif.gif')
+
 
 final_img=ImageTk.PhotoImage(img)
 
@@ -69,10 +72,26 @@ img_file='images/casino_gif.gif'
 img1=Image.open('images/casino_gif.gif') # Max frames = 22
 
 frames=61
+b_frame=11
 imga=[PhotoImage(file=img_file,format='gif - {}'.format(i)) for i in range(frames)]
 
 img1_finale=ImageTk.PhotoImage(img1)
 
+b_imgfile='matrix.gif'
+bimg=Image.open('matrix.gif')
+print(bimg.n_frames)
+imga_b=[PhotoImage(file=b_imgfile,format='gif - {}'.format(i)).zoom(5,4) for i in range(b_frame)]
+b_count=0
+def background_gif(count):
+	global b_count
+	b_count=count
+	im2=imga_b[count]
+	background_image.config(image=im2)
+	b_count+=1
+	if b_count==b_frame:
+		b_count=0
+	window.after(125,lambda: background_gif(b_count))
+background_gif(b_count)		
 
 
 def gif(end,count):
@@ -110,7 +129,7 @@ def lever(g, h):
 	gambler_dlr=g
 	global house_dlr
 	house_dlr=h
-	
+
 	
 	try:
 	  bet=float(bet_entry.get())
@@ -185,9 +204,12 @@ gamblr_money['font']=my_font
 house_money.grid(row=13,column=1)
 gamblr_money.grid(row=13,column=3)
 
+btn_img=Image.open('images/btn.jpeg')
+btn_img=btn_img.resize((35,35),Image.ANTIALIAS)
+btn_imgf=ImageTk.PhotoImage(btn_img)
 
-btn_name=Button(window,text='o',command=name)
-btn_name.grid(row=3,column=3)
+btn_name=Button(window,image=btn_imgf,command=name,bg='black')
+btn_name.grid(row=3,column=1,columnspan=3)
 
 bait_label=Label(window,text='The Bait',bg=color2,fg=color1)
 bet_label=Label(window,text='The Bet',bg=color1,fg='white')
@@ -214,5 +236,5 @@ the_lever=Button(window,image=lever_imgf,bg='black',command=lambda: lever(gamble
 the_lever.grid(row=8,column=1,columnspan=3)
 
 
-background_sound.play(loops=1000)
+background_sound.music.play(loops=1000)
 window.mainloop()	   
