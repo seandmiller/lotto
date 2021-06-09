@@ -31,13 +31,15 @@ class tools:
 	    	i-=1
 	    end_result=""
 	    for el in arg:
-	        end_result+=el
+		    end_result+=el
 	    if decima==True:
-	    	end_result+=deci	
+		    end_result+=deci	
 	    if dollar==True:
-	       final_result=f"{end_result}$"
+		    final_result=f"{end_result}$"
+	    elif dollar=='yuan':
+		    final_result=f"{end_result}¥"   
 	    elif dollar==False:
-	       final_result=f"{end_result}" 
+		    final_result=f"{end_result}" 
 	    else:
 	       return "Invalid dollar output"
 	    return final_result

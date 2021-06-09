@@ -148,28 +148,28 @@ def lever(g, h):
 	
 	if enuf_cash==True and enuf_cash1==True:
 		if win==True and hook==True:
-			earnings=tools(bet*20).comma(dollar=True,decima=True)
+			earnings=tools(bet*20).comma(dollar='yuan',decima=True)
 			gambler_dlr+= bet * 20
 			house_dlr-=bet * 20
 			winner_msg.config(text=f'{g_name} has won {earnings}',bg=color1,fg='white')
 		elif win==True and hook==False:
-			earnings=tools(bet*10).comma(dollar=True,decima=True)
+			earnings=tools(bet*10).comma(dollar='yuan',decima=True)
 			gambler_dlr+= bet * 10
 			house_dlr-= bet * 10
 			winner_msg.config(text=f'{g_name} has won {earnings}',bg=color1,fg='white')
 		elif win==False and hook==True:
-			earnings=tools(bet*3).comma(dollar=True,decima=True)
+			earnings=tools(bet*3).comma(dollar='yuan',decima=True)
 			house_dlr+= bet * 3
 			gambler_dlr -=bet*3
 			winner_msg.config(text=f'{h_name} has won {earnings}',bg=color2,fg=color1)
 		elif win==False and hook==False:
-			earnings=tools(bet).comma(dollar=True,decima=True)
+			earnings=tools(bet).comma(dollar='yuan',decima=True)
 			house_dlr+=bet
 			gambler_dlr-=bet
 			winner_msg.config(text=f'{h_name} has won {earnings}',bg=color2,fg=color1)
 	
-	gambler_dlrF=tools(gambler_dlr).comma(dollar=True,decima=True)
-	house_dlrF=tools(house_dlr).comma(dollar=True,decima=True)
+	gambler_dlrF=tools(gambler_dlr).comma(dollar='yuan',decima=True)
+	house_dlrF=tools(house_dlr).comma(dollar='yuan',decima=True)
 	remaining_g=f"with only {gambler_dlrF} remaining" if gambler_dlr==0 else f"owing {gambler_dlrF} in the end!!!"
 	remaining_h=f"{house_dlrF}\n isn't going to pay the lease!!!" if house_dlr>=0 else f"Holy Shit!!!\n you're {house_dlrF} in debt!!"
 	if gambler_dlr<=0:
@@ -197,9 +197,9 @@ winner_msg['font']=my_font
 winner_msg.grid(row=6,column=1,columnspan=3)
 
 
-house_money=Label(window,text='1,000$',fg=color1,bg=color2,borderwidth=2)
+house_money=Label(window,text='1,000¥',fg=color1,bg=color2,borderwidth=2)
 house_money['font']=my_font
-gamblr_money=Label(window,text='100$',fg='white',bg=color1,borderwidth=2)
+gamblr_money=Label(window,text='100¥',fg='white',bg=color1,borderwidth=2)
 gamblr_money['font']=my_font
 house_money.grid(row=13,column=1)
 gamblr_money.grid(row=13,column=3)
