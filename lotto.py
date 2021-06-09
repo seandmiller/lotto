@@ -205,7 +205,7 @@ house_money.grid(row=13,column=1)
 gamblr_money.grid(row=13,column=3)
 
 btn_img=Image.open('images/btn.jpeg')
-btn_img=btn_img.resize((35,35),Image.ANTIALIAS)
+btn_img=btn_img.resize((35,30),Image.ANTIALIAS)
 btn_imgf=ImageTk.PhotoImage(btn_img)
 
 btn_name=Button(window,image=btn_imgf,command=name,bg='black')
