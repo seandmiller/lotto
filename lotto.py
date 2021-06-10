@@ -68,6 +68,13 @@ def name():
    	   gambler.destroy()
    	   gamblr_lbl.destroy()
    	   house_lbl.destroy()
+def restart():
+	gambler_dlr=100
+	
+	house_dlr=1000
+	lever(gambler_dlr,house_dlr,game_restart=True)
+	winner_msg.config(text='Winner will be displayed here - RESTARTED -',bg='black',fg='green')
+
 hous_name=''
 gamblr_name=''
 img_file='images/casino_gif.gif'
@@ -113,12 +120,12 @@ def gif(end,count):
     		
 def stop_anim():
 	window.after_cancel(anim)
-global gambler_dlr
+
 gambler_dlr=100
-global house_dlr
+
 house_dlr=1000
 
-def lever(g, h):
+def lever(g, h,game_restart=False):
 	pygame.mixer.Channel(1).play(pygame.mixer.Sound('music/spin.wav'))
 	
 	global count
@@ -141,6 +148,9 @@ def lever(g, h):
 	except:
 	  bet=0
 	  bait=0
+	if game_restart==True:
+		bet=0
+		bait=0  
 
 
 	g_name=gamblr_name if gamblr_name!="" else 'The Gambler'
@@ -238,6 +248,8 @@ lever_imgf=ImageTk.PhotoImage(lever_img)
 
 the_lever=Button(window,image=lever_imgf,bg='black',command=lambda: lever(gambler_dlr,house_dlr))
 the_lever.grid(row=8,column=1,columnspan=3)
+rstrt=Button(bg='green',command=restart)
+rstrt.grid(row=10,column=0)
 
 
 background_sound.music.play(loops=1000)

@@ -18,13 +18,19 @@ class tools:
 	def comma(self,dollar=False,decima=False):
 	    arg=str(self.inves())
 	    arg,deci=arg.split('.')
+	    if int(arg)<0:
+		    arg=arg.replace('-','')
+		    negative=True
+	    else:
+		    negative=False	  
+	    
 	    deci= "." + deci
 	    arg=list(arg)
 	    i=0
 	    counter=0
-	    for _ in arg:
-	    	if counter==-3:
-	    		arg.insert(i,",")
+	    for x in arg:
+	    	if counter==-3 and x!='-' :
+			    arg.insert(i,",")
 	    	elif counter<-3:
 	    	    counter=0
 	    	counter-=1
@@ -42,6 +48,8 @@ class tools:
 		    final_result=f"{end_result}" 
 	    else:
 	       return "Invalid dollar output"
+	    if negative==True:
+		    final_result='-'+final_result
 	    return final_result
 	def figures(self,d=False,dc=False):
 	    counter=0
@@ -60,5 +68,5 @@ class tools:
       	    	
 
 	    
-box=tools(1000000000,5,23.5)
+
 
