@@ -187,8 +187,12 @@ def lever(g, h,game_restart=False):
 	remaining_g=f"with only {gambler_dlrF} remaining" if gambler_dlr==0 else f"owing {gambler_dlrF} in the end!!!"
 	remaining_h=f"{house_dlrF}\n isn't going to pay the lease!!!" if house_dlr>=0 else f"Holy Shit!!!\n you're {house_dlrF} in debt!!"
 	if gambler_dlr<=0:
+		pygame.mixer.Channel(3).play(pygame.mixer.Sound('music/winner.wav'))
+		
 		winner_msg.config(fg='red',text=f'{g_name} is absolute trash\n DESTROYED!!! \n {remaining_g}')
 	elif house_dlr<=10:
+		pygame.mixer.Channel(3).play(pygame.mixer.Sound('music/winner.wav'))
+		
 		winner_msg.config(fg='blue',text=f'{h_name} {remaining_h}')
 	bet_entry.delete(0,'end')
 	bait_entry.delete(0,'end')			
